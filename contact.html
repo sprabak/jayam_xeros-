@@ -1,77 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>Xero Shop - Contact</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    /* Navbar */
+    .responsive-bar {
+      display: none;
+    }
+
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100px;
+      padding: 10px 100px;
+      box-sizing: border-box;
+      transition: .5s;
+      z-index: 999;
+    }
+
+    nav.black {
+      background: rgba(0,0,0,0.8);
+      height: 80px;
+      padding: 10px 50px;
+    }
+
+    nav .logo {
+      float: left;
+    }
+    nav .logo img {
+      height: 80px;
+      transition: .5s;
+    }
+    nav.black .logo img {
+      height: 60px;
+    }
+
+    nav > ul {
+      margin: 0;
+      padding: 0;
+      float: right;
+    }
+    nav > ul > li {
+      list-style: none;
+      display: inline-block;
+    }
+    nav > ul > li > a {
+      color: #262626;
+      text-decoration: none;
+      text-transform: uppercase;
+      line-height: 80px;
+      padding: 5px 20px;
+      transition: .5s;
+    }
+    nav > ul > li > a:hover {
+      background: #f00;
+      color: #fff;
+    }
+    nav.black > ul > li > a {
+      color: #fff;
+      line-height: 60px;
+    }
+
+    /* Responsive nav */
+    @media(max-width:768px) {
+      .responsive-bar {
+        display: block;
+        width: 100%;
+        height: 60px;
+        background: #262626;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        z-index: 1000;
+      }
+      .responsive-bar .logo img {
+        float: left;
+        height: 50px;  
+      }
+      .responsive-bar .menu h4 {
+        float: right;
+        color: #fff;
+        margin: 0;
+        line-height: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+
+      nav {
+        background: #262626;
+        height: 60px;
+        padding: 0;
+      }
+      nav .logo { display: none; }
+
+      nav ul {
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        background: #262626;
+        display: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul.active {
+        display: block;
+      }
+      nav ul li {
+        width: 100%;
+        text-align: center;
+      }
+      nav ul li a {
+        display: block;
+        color: #fff;
+        line-height: 40px;
+      }
+    }
+
+    .content {
+      margin-top: 120px;
+    }
+
+    footer {
+      background: #262626;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Xero Shop</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+
+  <!-- Mobile top bar -->
+  <div class="responsive-bar">
+    <div class="logo">
+      <img src="https://drahomes.in/images/dra-jayam/nodra-jayam-logo.svg" alt="logo"/>
     </div>
+    <div class="menu">
+      <h4>Menu</h4>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="https://drahomes.in/images/dra-jayam/nodra-jayam-logo.svg" alt="logo"/>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="invoices.html">Invoices</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- Contact Form -->
-  <section class="container py-5">
-    <h2 class="text-center mb-4">Get in Touch</h2>
-    <div class="row g-4">
-      
-      <!-- Contact Form -->
-      <div class="col-md-6">
-        <form>
+  <!-- Page Content -->
+  <div class="content container py-5">
+    <h1 class="text-center mb-4">Contact Us</h1>
+    <p class="text-center mb-5">We’d love to hear from you! Fill out the form below and our team will get back to you soon.</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form class="p-4 border rounded bg-light shadow-sm">
           <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Your Name">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="Your Email">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Message</label>
-            <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-danger w-100">Send Message</button>
         </form>
       </div>
-
-      <!-- Contact Info & Map -->
-      <div class="col-md-6">
-        <h5>Our Address</h5>
-        <p>123 Business Street, Trichy, Tamil Nadu, India</p>
-        <h5>Email</h5>
-        <p>support@xeroshop.com</p>
-        <h5>Phone</h5>
-        <p>+91 98765 43210</p>
-        
-        <!-- Google Map Embed -->
-        <div class="mt-3">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18..." 
-                  width="100%" height="250" style="border:0;" 
-                  allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">© 2025 Xero Shop. All Rights Reserved.</p>
+  <footer>
+    <p>&copy; 2025 Xero Shop. All rights reserved.</p>
   </footer>
+
+  <!-- JS -->
+  <script>
+    $(window).on('scroll',function(){
+      if($(window).scrollTop()){
+        $('nav').addClass('black');
+      } else {
+        $('nav').removeClass('black');
+      }
+    });
+
+    $(document).ready(function(){
+      $('.menu h4').click(function(){
+        $("nav ul").toggleClass("active");
+      });
+    });
+  </script>
 </body>
 </html>
